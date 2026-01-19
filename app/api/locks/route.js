@@ -4,17 +4,9 @@ import Lock from "@/models/Lock";
 export async function GET() {
   try {
     await connectDB();
-
-    const locks = await Lock.find()
-      .populate("zoneId")
-      .lean();
-
+    const locks = await Lock.find({});
     return Response.json(locks);
   } catch (error) {
-    console.error("GET /api/locks error:", error);
-    return Response.json(
-      { message: "Failed to fetch locks" },
-      { status: 500 }
-    );
+    return Response.json({ error: error.message }, { status: 500 });
   }
 }
