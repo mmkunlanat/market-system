@@ -3,8 +3,9 @@ import mongoose from 'mongoose';
 const PaymentSchema = new mongoose.Schema({
   bookingId: { type: mongoose.Schema.Types.ObjectId, ref: 'Booking' },
   slipImage: String,
-  paidAt: Date,
-  status: { type: String, default: 'waiting' },
+  paidAt: { type: Date, default: Date.now },
+  status: { type: String, default: 'paid' },
 });
 
-export default mongoose.models.Payment || mongoose.model('Payment', PaymentSchema);
+export default mongoose.models.Payment ||
+  mongoose.model('Payment', PaymentSchema);
