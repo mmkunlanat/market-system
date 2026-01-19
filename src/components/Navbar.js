@@ -27,8 +27,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link admin" href="/admin">
-              <span className="icon">⚙️</span>Admin
+            <Link className="nav-link admin" href="/login">
+              <span className="icon">🔐</span>เข้าสู่ระบบ
             </Link>
           </li>
         </ul>

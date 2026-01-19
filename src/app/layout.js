@@ -17,9 +17,9 @@ export default function RootLayout({ children }) {
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#3b82f6" />
       </head>
-      <body>
+      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
-        <main className="main-content">
+        <main style={{ flex: 1 }} className="main-content">
           {children}
         </main>
         <Footer />
