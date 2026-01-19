@@ -1,0 +1,15 @@
+[
+  {
+    "_id": "1768830854514",
+    "lockId": "lock-b1",
+    "lockCode": "B1",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - กลาง",
+    "durationType": "day",
+    "startDate": "2026-01-27",
+    "totalPrice": 300,
+    "status": "pending",
+    "createdAt": "2026-01-19T13:54:14.514Z",
+    "expiresAt": "2026-01-19T14:09:14.515Z"
+  }
+]
