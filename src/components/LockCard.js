@@ -1,25 +1,42 @@
-export default function LockCard({ lock, onSelect }) {
+import "./LockCard.css";
+
+export default function LockCard({ lock, onSelect, isSelected }) {
+  const isAvailable = lock.status === "available";
+  
   return (
-    <div className="card h-100">
-      <div className="card-body">
-        <h5>ล็อก {lock.code}</h5>
+    <div className={`lock-card ${isSelected ? "selected" : ""} ${!isAvailable ? "unavailable" : ""}`}>
+      <div className="lock-status">
+        <span className={`status-badge ${isAvailable ? "available" : "unavailable"}`}>
+          {isAvailable ? "✓ ว่าง" : "✕ ไม่ว่าง"}
+        </span>
+      </div>
 
-        <p>฿ {lock.zoneId.pricePerDay} / วัน</p>
+      <div className="lock-content">
+        <h3 className="lock-code">
+          <span className="lock-icon">🔓</span>
+          ล็อก {lock.code}
+        </h3>
 
-        <p className={
-          lock.status === "available"
-            ? "text-success"
-            : "text-danger"
-        }>
-          {lock.status}
-        </p>
+        {lock.zoneId && (
+          <div className="zone-info">
+            <span className="zone-name">{lock.zoneId.name}</span>
+          </div>
+        )}
+
+        <div className="price-section">
+          <p className="price-label">ราคา / วัน</p>
+          <p className="price-value">
+            <span className="currency">฿</span>
+            {lock.zoneId?.pricePerDay || lock.priceDay || "—"}
+          </p>
+        </div>
 
         <button
-          className="btn btn-primary btn-sm"
-          disabled={lock.status !== "available"}
+          className={`btn-select ${isAvailable ? "enabled" : "disabled"}`}
+          disabled={!isAvailable}
           onClick={() => onSelect(lock)}
         >
-          จองล็อกนี้
+          {isAvailable ? "จองล็อกนี้ →" : "ไม่สามารถจองได้"}
         </button>
       </div>
     </div>
