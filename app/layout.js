@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'Market Booking System',
@@ -7,8 +8,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="th">
       <body>
+        <Navbar />
         {children}
       </body>
     </html>
