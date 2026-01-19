@@ -1,11 +1,20 @@
 import connectDB from "@/lib/mongodb";
 import Lock from "@/models/Lock";
-import Zone from "@/models/Zone";
 
 export async function GET() {
-  await connectDB();
+  try {
+    await connectDB();
 
-  const locks = await Lock.find().populate("zoneId");
+    const locks = await Lock.find()
+      .populate("zoneId")
+      .lean();
 
-  return Response.json(locks);
+    return Response.json(locks);
+  } catch (error) {
+    console.error("GET /api/locks error:", error);
+    return Response.json(
+      { message: "Failed to fetch locks" },
+      { status: 500 }
+    );
+  }
 }

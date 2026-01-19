@@ -1,15 +1,46 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const BookingSchema = new mongoose.Schema({
-  lockId: { type: mongoose.Schema.Types.ObjectId, ref: 'Lock' },
-  durationType: String,
-  totalPrice: Number,
+const BookingSchema = new mongoose.Schema(
+  {
+    lockId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Lock",
+      required: true,
+    },
 
-  status: { type: String, default: 'pending' }, 
-  paymentStatus: { type: String, default: 'unpaid' },
+    durationType: {
+      type: String,
+      enum: ["day", "week", "month"],
+      required: true,
+    },
 
-  createdAt: { type: Date, default: Date.now },
-});
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+
+    status: {
+      type: String,
+      enum: ["pending", "confirmed", "expired", "cancelled"],
+      default: "pending",
+    },
+
+    paymentStatus: {
+      type: String,
+      enum: ["unpaid", "paid", "rejected"],
+      default: "unpaid",
+    },
+
+    expiresAt: {
+      type: Date,
+      required: true,
+      index: true, // 👈 ใช้กับ cron
+    },
+  },
+  {
+    timestamps: true, // createdAt / updatedAt
+  }
+);
 
 export default mongoose.models.Booking ||
-  mongoose.model('Booking', BookingSchema);
+  mongoose.model("Booking", BookingSchema);
