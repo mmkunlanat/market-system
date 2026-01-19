@@ -1,64 +1,72 @@
-import connectDB from "@/lib/mongodb";
-import Booking from "@/src/models/Booking";
-import Lock from "@/src/models/Lock";
-import Payment from "@/src/models/Payment";
-import mongoose from "mongoose";
-
-export async function POST(req) {
-  await connectDB();
-  const { bookingId, slipImage } = await req.json();
-
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
+export async function POST(request) {
   try {
-    const booking = await Booking.findById(bookingId).session(session);
-    if (!booking || booking.status !== "pending") {
-      throw new Error("Booking ใช้ไม่ได้");
+    const { readFile, writeFile } = await import('fs/promises');
+    const { join } = await import('path');
+    
+    const bookingsFile = join(process.cwd(), 'public', 'bookings.json');
+    const paymentsFile = join(process.cwd(), 'public', 'payments.json');
+    
+    const { bookingId, slipImage } = await request.json();
+
+    // Read bookings
+    let bookings = [];
+    try {
+      const data = await readFile(bookingsFile, 'utf-8');
+      bookings = JSON.parse(data);
+    } catch {
+      bookings = [];
     }
 
-    // ใครได้ lock ก่อน = ชนะ
-    const lock = await Lock.findOneAndUpdate(
-      { _id: booking.lockId, status: "available" },
-      { status: "occupied" },
-      { session }
-    );
-
-    if (!lock) {
-      throw new Error("มีคนจ่ายตัดหน้าแล้ว");
+    const bookingIndex = bookings.findIndex(b => b._id === bookingId);
+    if (bookingIndex === -1 || bookings[bookingIndex].status !== "pending") {
+      return Response.json(
+        { message: "Booking ใช้ไม่ได้" },
+        { status: 400 }
+      );
     }
 
-    // บันทึก payment
-    await Payment.create(
-      [{
-        bookingId,
-        slipImage,
-        paidAt: new Date(),
-        status: "approved"
-      }],
-      { session }
-    );
+    const booking = bookings[bookingIndex];
 
+    // Create payment record
+    let payments = [];
+    try {
+      const data = await readFile(paymentsFile, 'utf-8');
+      payments = JSON.parse(data);
+    } catch {
+      payments = [];
+    }
+
+    const newPayment = {
+      _id: Date.now().toString(),
+      bookingId,
+      amount: booking.totalPrice,
+      slipImage,
+      status: "pending",
+      createdAt: new Date().toISOString(),
+    };
+
+    payments.push(newPayment);
+
+    // Update booking status
     booking.status = "confirmed";
     booking.paymentStatus = "paid";
-    await booking.save({ session });
+    bookings[bookingIndex] = booking;
 
     // ยกเลิก booking อื่น
-    await Booking.updateMany(
-      {
-        lockId: booking.lockId,
-        status: "pending",
-        _id: { $ne: booking._id }
-      },
-      { status: "cancelled" },
-      { session }
-    );
+    bookings = bookings.map(b => {
+      if (b.lockId === booking.lockId && b._id !== booking._id && b.status === "pending") {
+        b.status = "cancelled";
+      }
+      return b;
+    });
 
-    await session.commitTransaction();
-    return Response.json({ success: true });
+    // Save to files
+    await writeFile(bookingsFile, JSON.stringify(bookings, null, 2), 'utf-8');
+    await writeFile(paymentsFile, JSON.stringify(payments, null, 2), 'utf-8');
+
+    return Response.json({ success: true, payment: newPayment });
 
   } catch (err) {
-    await session.abortTransaction();
-    return Response.json({ success: false, message: err.message });
+    return Response.json({ success: false, message: err.message }, { status: 500 });
   }
 }

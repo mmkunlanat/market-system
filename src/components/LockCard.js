@@ -1,14 +1,20 @@
 import "./LockCard.css";
 
-export default function LockCard({ lock, onSelect, isSelected }) {
+export default function LockCard({ lock, zone, onSelect, isSelected }) {
   const isAvailable = lock.status === "available";
+  const price = lock.priceOverride || (zone?.pricePerDay);
   
   return (
     <div className={`lock-card ${isSelected ? "selected" : ""} ${!isAvailable ? "unavailable" : ""}`}>
-      <div className="lock-status">
-        <span className={`status-badge ${isAvailable ? "available" : "unavailable"}`}>
-          {isAvailable ? "✓ ว่าง" : "✕ ไม่ว่าง"}
-        </span>
+      <div className="lock-header">
+        <div className="lock-zone" style={{ backgroundColor: zone?.color || '#ccc' }}>
+          <span className="zone-badge">{zone?.code || 'N/A'}</span>
+        </div>
+        <div className="lock-status">
+          <span className={`status-badge ${isAvailable ? "available" : "unavailable"}`}>
+            {isAvailable ? "✓ ว่าง" : "✕ ไม่ว่าง"}
+          </span>
+        </div>
       </div>
 
       <div className="lock-content">
@@ -17,18 +23,35 @@ export default function LockCard({ lock, onSelect, isSelected }) {
           ล็อก {lock.code}
         </h3>
 
-        {lock.zoneId && (
+        {zone && (
           <div className="zone-info">
-            <span className="zone-name">{lock.zoneId.name}</span>
+            <span className="zone-name">{zone.name}</span>
+            <span className="zone-badge-pill">{zone.badge}</span>
           </div>
         )}
+
+        <div className="lock-details">
+          <div className="detail-item">
+            <span className="detail-label">📏 ขนาด:</span>
+            <span className="detail-value">{lock.size}</span>
+          </div>
+          {lock.features && lock.features.length > 0 && (
+            <div className="detail-item">
+              <span className="detail-label">⭐ จุดเด่น:</span>
+              <span className="detail-value">{lock.features.join(", ")}</span>
+            </div>
+          )}
+        </div>
 
         <div className="price-section">
           <p className="price-label">ราคา / วัน</p>
           <p className="price-value">
             <span className="currency">฿</span>
-            {lock.zoneId?.pricePerDay || lock.priceDay || "—"}
+            {price || "—"}
           </p>
+          {lock.priceOverride && (
+            <p className="price-note">ราคาพิเศษสำหรับขนาดนี้</p>
+          )}
         </div>
 
         <button
@@ -36,7 +59,7 @@ export default function LockCard({ lock, onSelect, isSelected }) {
           disabled={!isAvailable}
           onClick={() => onSelect(lock)}
         >
-          {isAvailable ? "จองล็อกนี้ →" : "ไม่สามารถจองได้"}
+          {isAvailable ? "เลือกล็อกนี้ →" : "ไม่สามารถจองได้"}
         </button>
       </div>
     </div>

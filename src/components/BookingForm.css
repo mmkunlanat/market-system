@@ -28,8 +28,35 @@
   padding: 2rem;
 }
 
-.form-group {
+.lock-overview {
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.overview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview-item .label {
+  color: var(--gray-600);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.overview-item .value {
+  color: var(--gray-900);
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
 .form-label {
@@ -50,6 +77,7 @@
   color: var(--gray-900);
   transition: all 0.3s ease;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .form-select:hover:not(:disabled) {
@@ -66,6 +94,33 @@
   background-color: var(--gray-100);
   color: var(--gray-600);
   cursor: not-allowed;
+}
+
+.date-preview {
+  background: var(--primary-light);
+  border-left: 4px solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.preview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-item .label {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.preview-item .value {
+  color: var(--primary-dark);
+  font-weight: 700;
 }
 
 .price-breakdown {
@@ -204,5 +259,9 @@
 
   .form-body {
     padding: 1.5rem;
+  }
+
+  .lock-overview {
+    padding: 1rem;
   }
 }
