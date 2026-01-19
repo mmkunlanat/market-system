@@ -7,21 +7,15 @@ export default function BookingPage() {
   const [locks, setLocks] = useState([]);
   const [selectedLock, setSelectedLock] = useState(null);
 
-  // 👇 ตรงนี้แหละที่คุณถาม
   useEffect(() => {
     fetch("/api/locks")
-      .then(async (res) => {
-        if (!res.ok) {
-          throw new Error("API error");
-        }
+      .then(async res => {
+        if (!res.ok) throw new Error("API error");
         return res.json();
       })
-      .then((data) => {
-        console.log("LOCKS:", data); // 👈 ใช้ debug ได้
-        setLocks(data);
-      })
-      .catch((err) => {
-        console.error("โหลดล็อกไม่สำเร็จ", err);
+      .then(setLocks)
+      .catch(err => {
+        console.error(err);
         alert("โหลดข้อมูลไม่สำเร็จ");
       });
   }, []);
@@ -31,9 +25,12 @@ export default function BookingPage() {
       <h3>📍 เลือกล็อกขายของ</h3>
 
       <div className="row">
-        {locks.map((lock) => (
+        {locks.map(lock => (
           <div className="col-md-3 mb-3" key={lock._id}>
-            <LockCard lock={lock} onSelect={setSelectedLock} />
+            <LockCard
+              lock={lock}
+              onSelect={setSelectedLock}
+            />
           </div>
         ))}
       </div>

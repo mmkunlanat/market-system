@@ -1,5 +1,5 @@
 import connectDB from "@/lib/mongodb";
-import Booking from "@/models/Booking";
+import Booking from "@/src/models/Booking";
 
 export async function expireBookings() {
   await connectDB();

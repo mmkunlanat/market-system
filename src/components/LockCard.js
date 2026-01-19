@@ -2,14 +2,15 @@ export default function LockCard({ lock, onSelect }) {
   return (
     <div className="card h-100">
       <div className="card-body">
-        <h5 className="card-title">ล็อก {lock.code}</h5>
+        <h5>ล็อก {lock.code}</h5>
 
-        <p className="mb-1">โซน: {lock.zoneId.name}</p>
-        <p className="mb-1">฿ {lock.zoneId.pricePerDay} / วัน</p>
+        <p>฿ {lock.zoneId.pricePerDay} / วัน</p>
 
-        <p className={`fw-bold ${
-          lock.status === "available" ? "text-success" : "text-danger"
-        }`}>
+        <p className={
+          lock.status === "available"
+            ? "text-success"
+            : "text-danger"
+        }>
           {lock.status}
         </p>
 

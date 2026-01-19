@@ -1,6 +1,6 @@
 import connectDB from "@/lib/mongodb";
-import Booking from "@/models/Booking";
-import Lock from "@/models/Lock";
+import Booking from "@/src/models/Booking";
+import Lock from "@/src/models/Lock";
 
 export async function POST(req) {
   await connectDB();

@@ -1,7 +1,7 @@
 import connectDB from "@/lib/mongodb";
-import Payment from "@/models/Payment";
-import Booking from "@/models/Booking";
-import Lock from "@/models/Lock";
+import Payment from "@/src/models/Payment";
+import Booking from "@/src/models/Booking";
+import Lock from "@/src/models/Lock";
 
 export async function PUT(req, { params }) {
   await connectDB();
