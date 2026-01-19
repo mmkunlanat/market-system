@@ -8,5 +8,16 @@
     "password": "123456",
     "createdAt": "2026-01-19T13:31:59.295Z",
     "status": "active"
+  },
+  {
+    "id": "admin-001",
+    "name": "Admin",
+    "email": "Admin",
+    "username": "Admin",
+    "phone": "0000000000",
+    "password": "123456789",
+    "role": "admin",
+    "createdAt": "2026-01-19T00:00:00.000Z",
+    "status": "active"
   }
 ]
