@@ -1,26 +1,20 @@
-"use client";
-
 export default function LockCard({ lock, onSelect }) {
   return (
     <div className="card h-100">
       <div className="card-body">
         <h5 className="card-title">ล็อก {lock.code}</h5>
 
-        <p className="card-text">
-          โซน: {lock.zone}
-        </p>
+        <p className="mb-1">โซน: {lock.zoneId.name}</p>
+        <p className="mb-1">฿ {lock.zoneId.pricePerDay} / วัน</p>
 
-        <p className="card-text">
-          ราคา/วัน: {lock.priceDay} บาท
-        </p>
-
-        <p className="card-text">
-          สถานะ:{" "}
-          {lock.status === "available" ? "ว่าง" : "ไม่ว่าง"}
+        <p className={`fw-bold ${
+          lock.status === "available" ? "text-success" : "text-danger"
+        }`}>
+          {lock.status}
         </p>
 
         <button
-          className="btn btn-primary w-100"
+          className="btn btn-primary btn-sm"
           disabled={lock.status !== "available"}
           onClick={() => onSelect(lock)}
         >

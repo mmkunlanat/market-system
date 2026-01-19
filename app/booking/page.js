@@ -9,32 +9,28 @@ export default function BookingPage() {
 
   useEffect(() => {
     fetch("/api/locks")
-      .then((res) => res.json())
-      .then(setLocks);
+      .then(res => res.json())
+      .then(data => setLocks(data));
   }, []);
 
   return (
-    <div>
-      <h2>📍 เลือกล็อกขายของ</h2>
+    <div className="container mt-4">
+      <h3 className="mb-3">📍 เลือกล็อกขายของ</h3>
 
       <div className="row">
-        {locks.map((lock) => (
+        {locks.map(lock => (
           <div className="col-md-3 mb-3" key={lock._id}>
             <LockCard
-              lock={{
-                id: lock._id,
-                code: lock.code,
-                zone: lock.zoneId.name,
-                priceDay: lock.zoneId.pricePerDay,
-                status: lock.status,
-              }}
+              lock={lock}
               onSelect={setSelectedLock}
             />
           </div>
         ))}
       </div>
 
-      {selectedLock && <BookingForm lock={selectedLock} />}
+      {selectedLock && (
+        <BookingForm lock={selectedLock} />
+      )}
     </div>
   );
 }
