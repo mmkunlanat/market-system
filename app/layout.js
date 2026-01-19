@@ -3,15 +3,16 @@ import Navbar from '../components/Navbar';
 
 export const metadata = {
   title: 'Market Booking System',
-  description: 'ระบบจองล็อกตลาดนัด',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="th">
+    <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <div className="container mt-4">
+          {children}
+        </div>
       </body>
     </html>
   );
