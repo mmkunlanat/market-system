@@ -124,7 +124,7 @@ export default function LoginPage() {
           </p>
           <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem' }}>
             <strong>Admin:</strong> <code>Admin / 123456789</code><br />
-            <strong>User:</strong> <code>jaary2005@gmail.com / 0987654321</code>
+            <strong>User:</strong> <code>jjaa / 0987654321</code>
           </div>
           <p className="signup-link">
             ยังไม่มีบัญชี? <a href="/signup">สมัครสมาชิก</a>

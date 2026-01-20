@@ -292,5 +292,20 @@
     "status": "confirmed",
     "createdAt": "2026-01-20T14:15:30.233Z",
     "paymentStatus": "paid"
+  },
+  {
+    "_id": "1768926552202",
+    "lockId": "lock-a6",
+    "lockCode": "A6",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "durationType": "month",
+    "startDate": "2026-01-28",
+    "endDate": "2026-02-28",
+    "totalPrice": 15000,
+    "status": "confirmed",
+    "createdAt": "2026-01-20T16:29:12.202Z",
+    "expiresAt": "2026-01-20T16:44:12.202Z",
+    "paymentStatus": "paid"
   }
 ]

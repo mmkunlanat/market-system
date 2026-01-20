@@ -31,9 +31,13 @@ export async function POST(request) {
       );
     }
 
+    const normalizedEmail = email.trim().toLowerCase();
+    const cleanPassword = password.trim();
+
     const users = await readUsers();
-    const user = users.find(u => 
-      (u.email === email || u.username === email) && u.password === password
+    const user = users.find(u =>
+      (u.email.toLowerCase() === normalizedEmail || u.username.toLowerCase() === normalizedEmail) &&
+      u.password === cleanPassword
     );
 
     if (!user) {
@@ -45,9 +49,9 @@ export async function POST(request) {
 
     // ลบรหัสผ่านออกจาก response
     const { password: _, ...userWithoutPassword } = user;
-    
+
     return Response.json(
-      { 
+      {
         message: "เข้าสู่ระบบสำเร็จ",
         token: Buffer.from(JSON.stringify(user)).toString('base64'),
         user: userWithoutPassword

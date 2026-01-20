@@ -71,7 +71,7 @@
     "zoneId": "zone-a",
     "zoneName": "โซน A - ทำเลทอง",
     "size": "2x2 เมตร",
-    "status": "available",
+    "status": "unavailable",
     "features": [
       "มีไฟฟ้า"
     ],

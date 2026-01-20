@@ -104,7 +104,15 @@ export async function GET(request) {
       bookings = [];
     }
 
-    return Response.json(bookings);
+    const { searchParams } = new URL(request.url);
+    const userEmail = searchParams.get('email');
+
+    let filteredBookings = bookings;
+    if (userEmail) {
+      filteredBookings = bookings.filter(b => b.userEmail === userEmail);
+    }
+
+    return Response.json(filteredBookings);
   } catch (error) {
     console.error('Get bookings error:', error);
     return Response.json(

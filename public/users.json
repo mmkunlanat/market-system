@@ -3,9 +3,10 @@
     "id": "1768829519295",
     "name": "min",
     "email": "kunlanatrattanawan2911@gmail.com",
-    "username": "kunlanatrattanawan2911@gmail.com",
+    "username": "min",
     "phone": "0956613327",
     "password": "123456",
+    "role": "user",
     "createdAt": "2026-01-19T13:31:59.295Z",
     "status": "active"
   },
@@ -24,9 +25,10 @@
     "id": "1768923357554",
     "name": "jjaa",
     "email": "jaary2005@gmail.com",
-    "username": "jaary2005@gmail.com",
+    "username": "jjaa",
     "phone": "0801844682",
     "password": "0987654321",
+    "role": "user",
     "createdAt": "2026-01-20T15:35:57.554Z",
     "status": "active"
   }
