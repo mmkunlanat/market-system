@@ -1,9 +1,9 @@
 import "./LockCard.css";
 
-export default function LockCard({ lock, zone, onSelect, isSelected }) {
+export default function LockCard({ lock, zone, booking, onSelect, isSelected }) {
   const isAvailable = lock.status === "available";
   const price = lock.priceOverride || (zone?.pricePerDay);
-  
+
   return (
     <div className={`lock-card ${isSelected ? "selected" : ""} ${!isAvailable ? "unavailable" : ""}`}>
       <div className="lock-header">
@@ -24,9 +24,23 @@ export default function LockCard({ lock, zone, onSelect, isSelected }) {
         </h3>
 
         {zone && (
-          <div className="zone-info">
+          <div className="zone-info" style={{ marginBottom: booking ? '0.5rem' : '1.5rem' }}>
             <span className="zone-name">{zone.name}</span>
             <span className="zone-badge-pill">{zone.badge}</span>
+          </div>
+        )}
+
+        {/* Display Rental Period if unavailable */}
+        {!isAvailable && booking && (
+          <div className="rental-period-info">
+            <div className="period-item">
+              <span className="period-label">📅 เริ่มเช่า:</span>
+              <span className="period-value">{new Date(booking.startDate).toLocaleDateString('th-TH')}</span>
+            </div>
+            <div className="period-item">
+              <span className="period-label">⌛ หมดเขต:</span>
+              <span className="period-value">{booking.endDate ? new Date(booking.endDate).toLocaleDateString('th-TH') : 'N/A'}</span>
+            </div>
           </div>
         )}
 

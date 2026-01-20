@@ -6,7 +6,10 @@
     "zoneName": "โซน A - ทำเลทอง",
     "size": "2x2 เมตร",
     "status": "available",
-    "features": ["ใกล้ทางเข้า", "มีไฟฟ้า"],
+    "features": [
+      "ใกล้ทางเข้า",
+      "มีไฟฟ้า"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -16,8 +19,10 @@
     "zoneId": "zone-a",
     "zoneName": "โซน A - ทำเลทอง",
     "size": "2x2 เมตร",
-    "status": "available",
-    "features": ["ใกล้ทางเข้า"],
+    "status": "unavailable",
+    "features": [
+      "ใกล้ทางเข้า"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -28,7 +33,100 @@
     "zoneName": "โซน A - ทำเลทอง",
     "size": "2x2 เมตร",
     "status": "available",
-    "features": ["ใกล้เวที", "มีไฟฟ้า"],
+    "features": [
+      "มีไฟฟ้า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a4",
+    "code": "A4",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ทางเดินกว้าง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a5",
+    "code": "A5",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ทางเดินกว้าง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a6",
+    "code": "A6",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "มีไฟฟ้า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a7",
+    "code": "A7",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "มีไฟฟ้า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a8",
+    "code": "A8",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ทางเดินกว้าง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a9",
+    "code": "A9",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ทางเดินกว้าง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-a10",
+    "code": "A10",
+    "zoneId": "zone-a",
+    "zoneName": "โซน A - ทำเลทอง",
+    "size": "2x2 เมตร",
+    "status": "unavailable",
+    "features": [
+      "ทางเดินกว้าง"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -36,10 +134,12 @@
     "_id": "lock-b1",
     "code": "B1",
     "zoneId": "zone-b",
-    "zoneName": "โซน B - กลาง",
+    "zoneName": "โซน B - โซนธรรมดา",
     "size": "2x2 เมตร",
     "status": "available",
-    "features": ["ตำแหน่งกลาง"],
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -47,21 +147,181 @@
     "_id": "lock-b2",
     "code": "B2",
     "zoneId": "zone-b",
-    "zoneName": "โซน B - กลาง",
-    "size": "2x3 เมตร",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
     "status": "available",
-    "features": ["ตำแหน่งกลาง", "ใหญ่พอสมควร"],
-    "priceOverride": 350,
-    "notes": "ขนาดใหญ่กว่า ราคา 350 บาท"
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
   },
   {
     "_id": "lock-b3",
     "code": "B3",
     "zoneId": "zone-b",
-    "zoneName": "โซน B - กลาง",
+    "zoneName": "โซน B - โซนธรรมดา",
     "size": "2x2 เมตร",
     "status": "available",
-    "features": ["ตำแหน่งกลาง"],
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b4",
+    "code": "B4",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b5",
+    "code": "B5",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b6",
+    "code": "B6",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b7",
+    "code": "B7",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b8",
+    "code": "B8",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "unavailable",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b9",
+    "code": "B9",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b10",
+    "code": "B10",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b11",
+    "code": "B11",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b12",
+    "code": "B12",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b13",
+    "code": "B13",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b14",
+    "code": "B14",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-b15",
+    "code": "B15",
+    "zoneId": "zone-b",
+    "zoneName": "โซน B - โซนธรรมดา",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ตำแหน่งกลาง"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -72,7 +332,9 @@
     "zoneName": "โซน C - ท้ายตลาด",
     "size": "2x2 เมตร",
     "status": "available",
-    "features": ["เหมาะสำหรับ bulk"],
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -83,7 +345,9 @@
     "zoneName": "โซน C - ท้ายตลาด",
     "size": "2x2 เมตร",
     "status": "available",
-    "features": ["เหมาะสำหรับ bulk"],
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
     "priceOverride": null,
     "notes": ""
   },
@@ -92,10 +356,233 @@
     "code": "C3",
     "zoneId": "zone-c",
     "zoneName": "โซน C - ท้ายตลาด",
-    "size": "3x3 เมตร",
+    "size": "2x2 เมตร",
     "status": "available",
-    "features": ["ขนาดใหญ่", "เหมาะสำหรับ bulk"],
-    "priceOverride": 250,
-    "notes": "ขนาดใหญ่ 3x3 เมตร"
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c4",
+    "code": "C4",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c5",
+    "code": "C5",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c6",
+    "code": "C6",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c7",
+    "code": "C7",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c8",
+    "code": "C8",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c9",
+    "code": "C9",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c10",
+    "code": "C10",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c11",
+    "code": "C11",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c12",
+    "code": "C12",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c13",
+    "code": "C13",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "unavailable",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c14",
+    "code": "C14",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c15",
+    "code": "C15",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c16",
+    "code": "C16",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c17",
+    "code": "C17",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c18",
+    "code": "C18",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c19",
+    "code": "C19",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "available",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
+  },
+  {
+    "_id": "lock-c20",
+    "code": "C20",
+    "zoneId": "zone-c",
+    "zoneName": "โซน C - ท้ายตลาด",
+    "size": "2x2 เมตร",
+    "status": "unavailable",
+    "features": [
+      "ราคาสบายกระเป๋า"
+    ],
+    "priceOverride": null,
+    "notes": ""
   }
 ]

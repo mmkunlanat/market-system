@@ -36,7 +36,12 @@ export default function LoginPage() {
 
       localStorage.setItem("token", data.token || "logged-in");
       localStorage.setItem("user", JSON.stringify(data.user || {}));
-      router.push("/admin");
+
+      if (data.user?.role === 'admin') {
+        router.push("/admin");
+      } else {
+        router.push("/market");
+      }
     } catch (err) {
       setError(err.message);
     } finally {
@@ -63,13 +68,13 @@ export default function LoginPage() {
 
           <div className="form-group">
             <label htmlFor="email" className="form-label">
-              อีเมล
+              อีเมล หรือ ชื่อผู้ใช้งาน
             </label>
             <input
               id="email"
-              type="email"
+              type="text"
               className="form-input"
-              placeholder="Admin"
+              placeholder="Admin หรือ email@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -117,7 +122,10 @@ export default function LoginPage() {
             <span className="demo-icon">💡</span>
             ข้อมูลสำหรับทดสอบ:
           </p>
-          <code>Admin / 123456789</code>
+          <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '1rem' }}>
+            <strong>Admin:</strong> <code>Admin / 123456789</code><br />
+            <strong>User:</strong> <code>jaary2005@gmail.com / 0987654321</code>
+          </div>
           <p className="signup-link">
             ยังไม่มีบัญชี? <a href="/signup">สมัครสมาชิก</a>
           </p>

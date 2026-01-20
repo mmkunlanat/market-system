@@ -55,9 +55,10 @@ export async function POST(request) {
       id: Date.now().toString(),
       name,
       email,
-      username: email, // ใช้ email เป็น username ด้วย
+      username: email, // ใช้ emailเป็น username ด้วย
       phone,
       password, // ในการพัฒนาจริง ต้อง hash password
+      role: 'user', // กำหนดสิทธิ์เริ่มต้นเป็น user
       createdAt: new Date().toISOString(),
       status: 'active'
     };
@@ -70,7 +71,7 @@ export async function POST(request) {
     const { password: _, ...userWithoutPassword } = newUser;
 
     return Response.json(
-      { 
+      {
         message: "สมัครสมาชิกสำเร็จ",
         user: userWithoutPassword
       },

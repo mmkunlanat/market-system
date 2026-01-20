@@ -19,5 +19,15 @@
     "role": "admin",
     "createdAt": "2026-01-19T00:00:00.000Z",
     "status": "active"
+  },
+  {
+    "id": "1768923357554",
+    "name": "jjaa",
+    "email": "jaary2005@gmail.com",
+    "username": "jaary2005@gmail.com",
+    "phone": "0801844682",
+    "password": "0987654321",
+    "createdAt": "2026-01-20T15:35:57.554Z",
+    "status": "active"
   }
 ]

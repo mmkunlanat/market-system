@@ -18,10 +18,11 @@ export default function AdminLayout({ children }) {
 
     try {
       const userData = JSON.parse(user);
-      // ตรวจสอบว่ามีข้อมูลผู้ใช้งาน
-      if (userData.email) {
+      // ตรวจสอบว่าเป็น Admin หรือไม่
+      if (userData.role === 'admin') {
         setIsAuthorized(true);
       } else {
+        // ถ้าไม่ใช่ Admin ให้เด้งไปหน้าแรกหรือหน้า Login
         router.push("/login");
       }
     } catch {

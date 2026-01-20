@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import LockCard from "@/components/LockCard";
 import BookingForm from "@/components/BookingForm";
 import "./booking.css";
@@ -9,26 +9,43 @@ export default function BookingPage() {
   const [zones, setZones] = useState([]);
   const [selectedZone, setSelectedZone] = useState(null);
   const [selectedLock, setSelectedLock] = useState(null);
+  const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedLock && formRef.current) {
+      setTimeout(() => {
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }, [selectedLock]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        
-        // Fetch zones
-        const zonesRes = await fetch("/api/zones");
-        if (!zonesRes.ok) throw new Error("ไม่สามารถโหลดข้อมูลโซน");
-        const zonesData = await zonesRes.json();
-        setZones(zonesData);
 
-        // Fetch locks
-        const locksRes = await fetch("/api/locks");
+        // Fetch zones, locks, and bookings
+        const [zonesRes, locksRes, bookingsRes] = await Promise.all([
+          fetch("/api/zones"),
+          fetch("/api/locks"),
+          fetch("/api/bookings")
+        ]);
+
+        if (!zonesRes.ok) throw new Error("ไม่สามารถโหลดข้อมูลโซน");
         if (!locksRes.ok) throw new Error("ไม่สามารถโหลดข้อมูลล็อก");
+        if (!bookingsRes.ok) throw new Error("ไม่สามารถโหลดข้อมูลการจอง");
+
+        const zonesData = await zonesRes.json();
         const locksData = await locksRes.json();
+        const bookingsData = await bookingsRes.json();
+
+        setZones(zonesData);
         setLocks(locksData);
-        
+        setBookings(bookingsData);
+
         setError(null);
       } catch (err) {
         console.error(err);
@@ -41,7 +58,7 @@ export default function BookingPage() {
     fetchData();
   }, []);
 
-  const filteredLocks = selectedZone 
+  const filteredLocks = selectedZone
     ? locks.filter(lock => lock.zoneId === selectedZone)
     : locks;
 
@@ -70,7 +87,7 @@ export default function BookingPage() {
           <div className="zone-filter">
             <h3>เลือกโซน</h3>
             <div className="zone-buttons">
-              <button 
+              <button
                 className={`zone-btn ${!selectedZone ? 'active' : ''}`}
                 onClick={() => setSelectedZone(null)}
               >
@@ -104,21 +121,21 @@ export default function BookingPage() {
                 {filteredLocks.map(lock => {
                   const zone = zones.find(z => z._id === lock.zoneId);
                   return (
-                    <div key={lock._id} onClick={() => setSelectedLock(lock)}>
-                      <LockCard
-                        lock={lock}
-                        zone={zone}
-                        onSelect={setSelectedLock}
-                        isSelected={selectedLock?._id === lock._id}
-                      />
-                    </div>
+                    <LockCard
+                      key={lock._id}
+                      lock={lock}
+                      zone={zone}
+                      booking={bookings.find(b => b.lockId === lock._id && (b.status === "confirmed" || b.status === "pending"))}
+                      onSelect={setSelectedLock}
+                      isSelected={selectedLock?._id === lock._id}
+                    />
                   );
                 })}
               </div>
 
               {selectedLock && (
-                <div className="booking-form-container">
-                  <BookingForm 
+                <div className="booking-form-container" ref={formRef}>
+                  <BookingForm
                     lock={selectedLock}
                     zone={zones.find(z => z._id === selectedLock.zoneId)}
                   />

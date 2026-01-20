@@ -2,11 +2,11 @@ export async function POST(request) {
   try {
     const { readFile, writeFile } = await import('fs/promises');
     const { join } = await import('path');
-    
+
     const bookingsFile = join(process.cwd(), 'public', 'bookings.json');
     const paymentsFile = join(process.cwd(), 'public', 'payments.json');
-    
-    const { bookingId, slipImage } = await request.json();
+
+    const { bookingId, slipImage, paymentMethod } = await request.json();
 
     // Read bookings
     let bookings = [];
@@ -41,6 +41,7 @@ export async function POST(request) {
       bookingId,
       amount: booking.totalPrice,
       slipImage,
+      paymentMethod,
       status: "pending",
       createdAt: new Date().toISOString(),
     };
